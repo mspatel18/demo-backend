@@ -3,12 +3,11 @@ import connectDB from "./db/index.js";
 
 dotenv.config({
   path: "./env",
-});
-// console.log("MONGODB_URI", process.env.MONGODB_URI);
+}); // it is used because of types:modules is used in package.json
 app.on("error", (error) => {
   console.log("Server error:", error);
   throw error;
-});
+}); // it is used to handle the error in the server
 connectDB()
   .then(() => {
     app.listen(process.env.PORT || 8000, () => {
@@ -17,4 +16,4 @@ connectDB()
   })
   .catch((error) => {
     console.log("Mongodb connection error:", error);
-  });
+  }); // it is used to connect the database and then start the server
