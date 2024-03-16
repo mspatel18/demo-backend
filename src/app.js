@@ -15,4 +15,10 @@ app.use(express.urlencoded({ extended: true, limit: "32kb" })); // it is used to
 app.use(express.static("public")); // it is used to serve the static files into the public folder
 app.use(cookieParser()); // it is used to handle the cookie
 
+//routes import
+import userRouter from "./routes/user.routes.js";
+
+//routes declaration
+app.use("/api/v1/users", userRouter); //localhost:8000/api/v1/users/register or localhost:8000/api/v1/users/login
+
 export { app };
